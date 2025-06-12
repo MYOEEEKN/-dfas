@@ -1,26 +1,26 @@
 // index.js - SEROX AI Unified Server
-// VERSION 8.0 - Single Deployable Architecture
+// VERSION 9.0 - Single Logic File Architecture
 // =================================================================
-import express from 'express';
-import cors from 'cors';
-import path from 'path';
-import { fileURLToPath } from 'url';
+const express = require('express');
+const cors = require('cors');
+const path = require('path');
+const { fileURLToPath } = require('url'); // This might not be needed with require
 
 // --- Core Application Imports ---
-import { ultraAIPredict } from './main.js';
-import { getBigSmallFromNumber } from './utils.js';
+const { ultraAIPredict, getBigSmallFromNumber } = require('./predictionLogic.js');
 
 // --- Server Setup ---
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// Since we are using require, __dirname is available directly
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = path.dirname(__filename);
 
 // --- Middleware ---
 app.use(cors({ origin: '*' }));
 app.use(express.json());
-// Serve static files (index.html) from the 'public' directory
+// Serve static files (like index.html, css, js) from the 'public' directory
 app.use(express.static(path.join(__dirname, 'public')));
 
 
