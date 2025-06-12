@@ -1,0 +1,17 @@
+{
+  "name": "serox-ai-unified-server",
+  "version": "8.0.0",
+  "description": "Unified UI and API server for NEWRO X AI",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
